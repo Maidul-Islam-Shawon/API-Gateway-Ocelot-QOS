@@ -1,0 +1,31 @@
+{
+  "Routes": [
+    {
+
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "SwaggerKey": "customers",
+      //"ServiceName": "customer-bff-svc",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "customer-bff-svc",
+          //"Port": "6003"
+          //"Host": "localhost",
+          //"Port": "44364"
+          //"Host": "localhost",
+          "Port": "6003"
+        }
+      ],
+      //"ServiceName": "customer-bff-svc",
+      //"ServiceNamespace": "playground",
+      "UpstreamPathTemplate": "/customer/{everything}",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ]
+
+    }
+  ]
+}

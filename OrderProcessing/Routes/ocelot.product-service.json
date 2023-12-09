@@ -1,0 +1,54 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      //"ServiceName": "product-bff-svc",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "product-bff-svc",
+          "Port": "6002"
+          //"Host": "localhost",
+          //"Port": "5137"
+          //"Host": "localhost",
+          //"Port": "6002"
+        }
+      ],
+      //"ServiceName": "product-bff-svc",
+      "ServiceNamespace": "playground",
+      "UpstreamPathTemplate": "/product/{everything}",
+      "SwaggerKey": "products",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ]
+    },
+    //{
+    //  "DownstreamPathTemplate": "/api/product/{id}",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "product-bff-svc",
+    //      "Port": "6002"
+    //    }
+    //  ],
+    //  "RateLimitOptions": {
+    //    "ClientWhitelist": [
+
+    //    ],
+    //    "EnableRateLimiting": true,
+    //    "Period": "5s",
+    //    "PeriodTimespan": 1,
+    //    "Limit": 1
+    //  },
+    //  "UpstreamPathTemplate": "/product/{id}",
+    //  "UpstreamHttpMethod": [
+    //    "GET",
+    //    "PUT",
+    //    "DELETE"
+    //  ]
+    //}
+  ]
+}

@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-bff-deployment
+  namespace: playground
+spec:
+  selector:
+    matchLabels:
+      app: product-bff
+  template:
+    metadata:
+      labels:
+        app: product-bff
+    spec:
+      serviceAccountName: product-bff-service-account
+      containers:
+        - name: product-bff-container
+          image: product-bff-image:1.0.1
+          imagePullPolicy: Never
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: product-bff-service-account
+  namespace: playground
+  labels:
+    account: details
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-bff-svc
+  namespace: playground
+spec:
+  selector:
+    app: product-bff
+  type: LoadBalancer
+  ports:
+    - port: 6002
+      protocol: TCP
+      targetPort: 80
+status:
+  loadBalancer: {}

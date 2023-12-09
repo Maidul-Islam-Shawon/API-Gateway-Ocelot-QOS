@@ -1,0 +1,13 @@
+{
+  "GlobalConfiguration": {
+    //"BaseUrl": "http://localhost",
+    "ServiceDiscoveryProvider": {
+
+      "Host": "orderprocessing-bff-svc",
+      "Port": 6001,
+      "Namespace": "playground"
+      //"Host": "localhost",
+      //"Port": 5195
+    }
+  }
+}
